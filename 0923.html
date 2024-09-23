@@ -1,0 +1,67 @@
+<html>
+<head>
+     <title>CSS簡介</title>
+     <meta charset="UTF-8" >
+     <!--HTML註解-->
+     <style>
+            /*CSS註解 */
+            /*CSS基本語法
+                 選擇器(
+                      屬性:設定;
+                      屬性:設定;
+                      屬性:設定;
+                      屬性:設定;
+                 )
+    */
+        /*選擇器的種類
+        HTML_tag{     }
+        #id{      }
+        .class{     }
+    */
+    p {
+       margin: 0;
+    }
+    div{
+        margin: 20px;
+        margin-bottom: 20px;
+    }
+    span {
+        background-color:lightblue;
+    }
+    #sp1 {
+        background-color:red
+        width 200px;
+        height:300px;
+        display: inline;
+    }
+    #sp2 {         
+         background-color:blue
+         width 200px;
+         height: 100px;
+         display: inline-block;
+    }
+    #sp3 {
+        display: block;
+        width: 200px;
+        height: 300px;
+    }
+    .cs1 {
+        color:red
+    }
+    .cs2{
+        background-color:green
+    }
+
+     </style>
+</head>
+<body>
+     <p>p段落</p>
+     <div class="cs1">區塊元素</div>
+     <span id="sp1">行內元素</span>
+     <span id="sp2" class="cs2">行內區塊元素</span>
+     <span id="sp3" class="cs1 cs2">區塊元素</span>
+
+
+
+</body>
+</html>
