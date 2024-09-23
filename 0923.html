@@ -18,6 +18,37 @@
         #id{      }
         .class{     }
     */
+    /*顏色
+      1.cplor name
+      2.#色盲 #RRGGBB 00~FF
+      3.rgb(r,g,b) 0~255
+      4.rgba(r,g,b,a) a:可見度 0~1
+      5.hsl(色相,彩度,亮度)
+      6.hsla(0~360,0~100%,0~1)
+    */
+    /*前景:文字顏色(color)
+      背景(background):
+                    顏色(background-color)
+                    圖像(background-image)
+    */
+    div {
+        background-color:yellow
+        width,300px
+        height 500px;
+        margin: bottom 10px;
+    }
+    /*漸層 not a color,is a image
+    1.線性漸層 linear-gradient(),to top/right/bottom/left => 0~360deg
+ 
+    */
+
+      
+      #d1 {
+           background: linear-gradient(red,yellow)
+      }
+      #d2 {
+        background-image:linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);
+      }
     p {
        margin: 0;
     }
@@ -26,7 +57,7 @@
         margin-bottom: 20px;
     }
     span {
-        background-color:lightblue;
+        background-color:#123456;
     }
     #sp1 {
         background-color:red
