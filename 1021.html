@@ -1,0 +1,69 @@
+<html>
+<head>
+      <title>JS簡介</title>
+      <meta charset="UTF-8">
+      <!--HTML註解，可跨行-->
+      <style>
+        /*CSS註解，可跨行 */
+      </style>
+      <script>
+             // JS單行註解 
+             /* JS多行註解 */
+             function myfuncion( ) { /*alert("只有確定的訊息"); */
+                /*
+                if(comfirm("你確定嗎?")} {
+                console.log("你按了確定");
+             } else {
+                 console.log("你按了取消");
+             }
+              */
+             ans-prompt("可回答問題及確定取消");
+              console.log(typeof(ans));
+              if(ans==null) {
+                console.log("你按了取消");
+             } else {
+                console.log("你輸入了"+ans);
+             }
+            }   
+            function get(id) {
+                return document.getElementById(id);
+            }
+            
+
+
+             function add() {
+                    var n1=get("n1").value;
+                    var  n2=get("n2").value;
+                    var ans=get("ans");
+
+                    ans.value=parseInt(n1)+parseInt(n2);
+                    document.getElementById("ans").value=ans;
+                    if(ans<60) {
+                        document.getElementById("ans").style.color="red";
+                    } else {
+                        document.getElementById("ans").style.color="green";
+                    }
+                    document.getElementById("ans").style.backgroundColor="blue";
+             }
+            
+
+
+      </script>
+
+
+
+
+
+
+</head>
+      <body>
+        <input type="member" id="n1"> +
+        <input type="member" id="n2">
+        <button onclick="add();">=</button>
+        <input type="number" id="ans">
+
+
+
+
+      </body>
+</html>
