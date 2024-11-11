@@ -1,0 +1,91 @@
+<html>
+<head>
+      <title>1111上課筆記-翻牌遊戲</title>
+      <meta charset="UTF-8">
+
+<style>
+      #board {
+        display:grid;
+        grid: repeat(3,100px)  /  repeat(4,100px);
+      }
+     
+
+
+
+
+
+
+
+</style>
+<script>
+     function get(id) {
+            return document.getElementById(id);
+        }
+           function getRandNum(Min,Max) {
+                  return Math.floor(Math.random()*(Max-Min+1))+Min;
+           }
+
+     function gameStart() {
+        imgs=Array.from(document.getElementsByTagName("img"));
+        ans=[1,1,2,2,3,3,4,4,5,5,6,6];
+        setTimeout(clearInterval,3000,setInterval(function(){
+        ans.sort(function(){ return Math.radom()-0.5;});
+        for(i=0; i<imgs.length; i++) {
+            imgs[i].src=`pic/${ans[i]}.png`;
+        }     
+        },50));
+        setTimeout(function(o){
+            imgs.forEach(function(o){    
+            o.src="pic/0.png";
+
+        });
+    },6000);
+    x1=-1; x2=-1;
+    }
+    function guess() {
+    i=imgs.indexOf(event.target);
+    if(x1 == -1) {
+        x1 = i;
+    imgs[i].src=`pic/${ans[i]}.png`;
+    } else if(x2 == -1) {
+        x2 = i;
+        imgs[i].src=`pic/${ans[i]}.png`;
+        if(ans[x1] == ans[x2]) {
+            x1=-1; x2=-1;
+        } else {
+            setTimeout(function(){
+                imgs[x1].src="pic/0.png";
+                imgs[x2].src="pic/0.png";
+                x1=-1;x2=-1;
+
+            },1000);
+
+        }
+
+    }
+}
+
+</script>
+
+</head>
+<body>
+    <div id="board">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+        <img src="pic/0.png"onclick="guess()">
+    </div>
+    <button onclick="gameStart();">洗牌</button>
+     
+
+
+</body>
+</html>
