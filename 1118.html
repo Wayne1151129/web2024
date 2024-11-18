@@ -1,0 +1,101 @@
+<html>
+<head>
+     <title>1118上課內容</title>
+     <meta charset="UTF-8">
+     <style>
+        #timebar {
+           width: 800px;
+           height: 20px;
+           background-color:green;
+        }
+        #board {
+           width: 800px;
+           height: 800px;
+           border: 1px solid gray;
+        .target {
+              position: absolute;
+
+              top:100px;
+              left:100px;
+              width:200px;
+              height:200px;
+              background-color: red
+
+        }
+
+        }
+
+     </style>
+     <script>
+            function get(id) {
+            return document.getElementById(id);
+        }
+           function getRandNum(max,min) {
+                  return Math.floor(Math.random()*(max-min+1))+min;
+           }
+           function timeCountdown() {
+               tbWidth=tbWidth-1;
+               get("timebar").style.width=tbWidth+"px";
+               if(tbWidth<=0){
+                clearInterval(gameTimer)
+               ;} else if(tbWidth<100) {
+                get("timebar").style.backgroundColor="red";
+               } else if(tbWidth<300) {
+                 get("timebar").style.background="orange";    
+               }
+           }          
+           function hitTarget() {
+            if(gaming==false) return;
+             x=event.target;
+             gameScore+=x.score;
+             get("score").innerHTML=gameScore;
+             x.remove();
+           }
+           
+
+
+           function newTarget() {
+            var x=document.createElement("div");
+            x.className="target";
+            x.score=
+            x.pos={x:0, y:0, w:50, h:50};
+            x.pos.w=getRandNum(30,70);
+            x.pos.h=x.pos.w;
+            x.pos.x=getRandNum(0,800-x.pos.w);
+            x.pos.y=getRandNum(0,800-x.pos.h);
+            x.style.width=x.pos.w+"px";
+            x.style.height=x.pos.h+"px";
+            x.style.left=x.pos.x+"px";
+            x.style.top=x.pos.y+"px";
+            x.style.background=`hsl(${getRandNum(0,360)},80%,50%)`;
+            get("board").appendChild(x);
+           }
+           function gameStart() {
+               gaming=true;
+                gameScore=0;
+                tbWidth=800;
+                 gameTimer=setInterval(timeCountdown,100);
+                 targetTimer=setInterval(newTarget,1000);
+            }
+            function gameStop() {
+                clearInterval(gameTimer);
+                clearInterval(targetTimer);
+
+
+                if(topscore<gamescore) {
+                    localStorage.setitem("topscore",gameScore);
+                }
+            }
+
+
+
+     </script>
+</head>
+<body>
+    <div>得分:<span id="score">0</span></div>
+      <div id="timebar"></div>
+      <div id="board"></div>
+      <button onclick="gameStart();">遊戲開始</button>
+
+</body>
+</html>
