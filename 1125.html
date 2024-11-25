@@ -1,0 +1,61 @@
+<html>
+<head>
+      <title>1125上課筆記-鍵盤控制</title>
+      <meta charset="UTF-8">
+<style>
+     #worldmap {
+        background: url("pic/grass.jpg");
+        background-size: 100px 70px;
+        width:800px;
+        height:800px;
+     }
+     @keyframes rolewalk {
+            0% {background-position-x: 0px;}
+            100% {background-position-x: -144px;}
+         }
+       
+    #role {
+        background-image: url("pic/sprite1.png");
+        width: 48px;
+        height: 72px;
+        position: absolute;
+        animation: rolewalk 1s steps(3) infinite;
+    }
+
+
+
+</style>
+<script>
+     var pos={x:0,y:0};
+     function get(id)   {
+        return document.getElementById(id);
+     }
+     function mykeydown() {
+        event.preventDefault();
+        console.log(event.key);
+        if(event.key=="ArrowUp") {
+            get("role").style.backgroundPositionY="-216px";
+            pos.y-=5;
+        } else if(event.key=="ArrowDown"){
+            get("role").style.backgroundPositionY="0px";
+           pos.y+=5;
+        } else if(event.key=="ArrowLeft"){
+            get("role").style.backgroundPositionY="-72px";
+           pos.x-=5;
+        } else if(event.key=="ArrowRight"){
+            get("role").style.backgroundPositionY="-144px";
+           pos.x+=5;
+        } 
+        get("role").style.left=pos.x+"px";
+        get("role").style.top=pos.y+"px";
+     }
+
+
+</script>
+</head>
+<body onkeydown="mykeydown();">
+    <div id="worldmap"></div>
+    <div id="role"></div>
+
+</body>
+</html>
