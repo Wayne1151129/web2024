@@ -1,0 +1,114 @@
+<html>
+<head>
+     <title>期末作品</title>
+     <meta charset="UTF-8">
+     <style>
+      @keyframes bgmove {
+        0%{background-position-y: 0px;}
+        100%{background-position-y: 216px;}
+      }
+      #space {
+        background: url("pic/bg_stars.jpg");
+        width:800px;
+        height:800px;
+        animation: bgmove 5s linear infinite;
+      }
+      #ship {
+        background: url("pic/ship.png");
+        background-size: 40px 60px;
+        width:40px;
+        height:60px;
+        position: absolute;
+        left: 380px;
+        top: 720px;
+      }
+      .ufo {
+        background: url("pic/ufo.png");
+       background-size: 60px 40px;
+       width: 60px;
+       height: 40px;
+       position: absolute;
+      }
+      .bullet {
+        width: 40px;
+        height: 60px;
+        background: red;
+        position: absolute
+         
+      }
+
+     </style>
+     <script>
+    function get(id) {
+        return document.getElementaryById(id);
+    }
+    function gmaeInit() {
+      mykeys={"ArrowLeft":0,"ArrowRight":0};
+      ship={pos:380};
+      setInterval(ship_move,50);
+      setInterval(ufo_create,500);
+
+    }
+    function mykeydown(event) {
+        event.preventDefault();
+        if(Object.keys(mykeys).includes(event.key)) {
+            mykeys[event.key]=1;
+        } else if (ev.key=="") {
+            //shoot();
+        }
+    }
+    function mykeyup(event) {
+        event.preventDefault();
+        if(Object.keys(mykeys).includes(event.key)) {
+            mykeys[event.key]=0;
+    }
+ }
+    function ship_move() {
+        if(mykeys["ArrowLeft"] && ship.pos>0) {
+            ship.pos--;
+        } else if(mykeys["ArrowRight"] && ship.pos <760) {
+            ship.pos++;
+        }
+        get("ship").style.left=ship.pos+"px";
+    }
+    function shoot() {
+        var b=document.createElement("div");
+        b.className="bullet";
+    b.pos={x:ship.pos+18,y:714};
+    b.style.left=b.pos.x+"px";
+    b.life=setInterval(bullet_move,10,b);
+        get("space").appendChild(b);
+
+    }
+    function bullet_move(b) {
+        var ufos=Array.from(document.getElementsByClassName("ufo")).filter;
+        return (u.pos.x<this.x && u.pos.x+60>this.x+4) && (u.pos.y+40>=this.y);
+    }
+    function ufo_create() {
+    var u=document.createElement("div")
+    u.className="ufo";
+    u.pos={x:getRandNum(10,730),y:-40};
+    u.style.left=u.pos.x+"px";
+    u.style.top=u.pos.y+"px";
+    u.life=setInterval(ufo_move,50,u);
+    get("space").appendChild(u);
+    }
+    function ufo_move(u) {
+        if(u.pos.y >= 760) {
+            clearInterval(u.life);
+            u.remove();
+        } else {
+            u.pos.x+=getRandNum(-3,3);
+        } 
+    }
+
+
+     </script>
+</head>
+<body onload="gameInit();" onkeydown="mykeydown(event);" onkeyup="mykeyup(event);">
+    <div id="space"></div> 
+    <div id="ship"></div>
+    
+
+</body>
+</html>
