@@ -1,12 +1,97 @@
 <html>
 <head>
-     <title>鋼琴</title>
+     <title>骰子遊戲改版</title>
      <meta charset="UTF-8">
-<style>
+     <style>
+         #num {
+            font-size: 60pt;
+         }
+         #num {
+             font-size:60pt;
+         }
 
 
 
 
-</style>
+
+     </style>
+     <script>
+        t1=0;
+        function get(id) {
+            return document.getElementById(id);
+        }
+           function getRandNum(max,min) {
+                  return Math.floor(Math.random()*(max-min+1))+min;
+           }
+
+
+        function rollingDice() {
+            dice=getRandNum(1,6);
+            //get("dice").src="pic/"+dice+".png";
+          get("dice").src="pic/"+dice+".png";
+          r=getRandNum(0,255);
+          g=getRandNum(0,255);
+          b=getRandNum(0,255);
+          get("msg").style.color=`hsl(${h}),80%,30%)`;
+        }  
+            
+        function startInterval() {
+            if(t1==0) {
+            t1=setInterval(rollingDice,50);
+            setTimeout(stopInterval,3000);
+            get("msg").innerHTML="擲骰中...";
+        }
+        }    
+            
+        function stopInterval() {
+            clearInterval(t1);
+            t1=0;
+            get("msg").innerHTML="你得到"+dice+"點"
+        }     
+
+        t1=0;
+        function get(id) {
+            return document.getElementById(id);
+        }
+           function getRandNum(max,min) {
+                  return Math.floor(Math.random()*(max-min+1))+min;
+           }
+
+
+        function rollingDice() {
+            dice=getRandNum(1,6);
+            //get("dice").src="pic/"+dice+".png";
+          get("dice").src="pic/"+dice+".png";
+          r=getRandNum(0,255);
+          g=getRandNum(0,255);
+          b=getRandNum(0,255);
+          get("msg").style.color=`hsl(${h}),80%,30%)`;
+        }  
+            
+        function startInterval() {
+            if(t1==0) {
+            t1=setInterval(rollingDice,50);
+            setTimeout(stopInterval,3000);
+            get("msg").innerHTML="擲骰中...";
+        }
+        }    
+            
+        function stopInterval() {
+            clearInterval(t1);
+            t1=0;
+            get("msg").innerHTML="你得到"+dice+"點 "
+        }     
+
+
+         
+     </script>
 </head>
+
+<body>
+     <button onclick="startInterval();">開始</button>
+     <button onclick="stopInterval();">結束</button>
+     <br>
+     <img id="dice" src="pic/0.png">
+     <div id="msg"></div>
+</body>
 </html>
