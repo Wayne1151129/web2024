@@ -10,7 +10,7 @@
              font-size:60pt;
          }
 
-
+    
 
 
 
@@ -46,41 +46,11 @@
         function stopInterval() {
             clearInterval(t1);
             t1=0;
-            get("msg").innerHTML="你得到"+dice+"點"
-        }     
-
-        t1=0;
-        function get(id) {
-            return document.getElementById(id);
-        }
-           function getRandNum(max,min) {
-                  return Math.floor(Math.random()*(max-min+1))+min;
-           }
-
-
-        function rollingDice() {
-            dice=getRandNum(1,6);
-            //get("dice").src="pic/"+dice+".png";
-          get("dice").src="pic/"+dice+".png";
-          r=getRandNum(0,255);
-          g=getRandNum(0,255);
-          b=getRandNum(0,255);
-          get("msg").style.color=`hsl(${h}),80%,30%)`;
+            get("msg").innerHTML="你拿到了"+dice+"點，再擲一次 擲到6我給你禮物"
         }  
-            
-        function startInterval() {
-            if(t1==0) {
-            t1=setInterval(rollingDice,50);
-            setTimeout(stopInterval,3000);
-            get("msg").innerHTML="擲骰中...";
-        }
-        }    
-            
-        function stopInterval() {
-            clearInterval(t1);
-            t1=0;
-            get("msg").innerHTML="你得到"+dice+"點 "
-        }     
+    
+
+        
 
 
          

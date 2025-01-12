@@ -32,13 +32,8 @@
           get("msg").style.color=`hsl(${h}),80%,30%)`;
         }  
             
-        function startInterval() {
-            if(t1==0) {
-            t1=setInterval(rollingDice,50);
-            setTimeout(stopInterval,3000);
-            get("msg").innerHTML="擲骰中...";
-        }
-        }    
+    
+           
             
         function stopInterval() {
             clearInterval(t1);
