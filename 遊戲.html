@@ -39,10 +39,11 @@
     function stopInterval() {
         clearInterval(t1);
         t1=0;
-        get("msg").innerHTML="你得到"+dice+"點 看看你得到寶藏了沒;"
+        get("msg").innerHTML="你得到"+dice+"點 看看你得到寶藏了沒 點上方網址拚拚看運氣";
         } if(dice==3) {
             get("msg").innerHTML="獲得寶藏" 
         };
+
     
         
       
@@ -56,7 +57,8 @@
 </head>
 
 <body>
- <button onclick="startInterval();">開始</button>
+    <li><a href="1111.html">翻牌遊戲</a></li>
+    <button onclick="startInterval();">開始</button>
  <button onclick="stopInterval();">結束</button>
  <br>
  <img id="dice" src="pic/0.png">
