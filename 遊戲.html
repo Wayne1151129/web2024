@@ -19,12 +19,12 @@
 
 
     function rollingDice() {
-        dice=getRandNum(1,6);
+        dice=getRandNum(1,20);
         //get("dice").src="pic/"+dice+".png";
       get("dice").src="pic/"+dice+".png";
-      r=getRandNum(0,255);
-      g=getRandNum(0,255);
-      b=getRandNum(0,255);
+      r=getRandNum(0,280);
+      g=getRandNum(0,280);
+      b=getRandNum(0,280);
       get("msg").style.color=`hsl(${h}),80%,30%)`;
     }   
         
@@ -39,12 +39,12 @@
     function stopInterval() {
         clearInterval(t1);
         t1=0;
-        get("msg").innerHTML="你得到"+dice+"點"
-        if(dice=1) {
-            get("msg").innerHTML="獲得寶藏" 
+        get("msg").innerHTML="你得到"+dice+"點 看看你得到寶藏了沒;"
+        } if(dice==6) {
+            get("msg").innerHTML="獲得寶藏" ;
         }
-
-        }         
+      
+                 
          
     
 
